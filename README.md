@@ -33,8 +33,8 @@ Make Payment Page
 To Accepts Cash and Card payments
 Generates receipts for both modes
 
-Contact Us Page for sharing any type of Cake related complaints
-Includes a FAQ section with a searchable list of questions
+Contact Us Page for sharing any type of Cake related complaints also,
+includes a FAQ section with a searchable list of questions
 
 📦 Tech Stack
 Frontend: HTML, SCSS, Typescript
