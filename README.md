@@ -23,9 +23,8 @@ Social Media Follow Links
 Order Page
 Step-by-step guide for placing orders
 Cake Order Form
-Buttons to:
-Download Receipt
-Place Another Order
+Buttons for:
+Download Receipt and Place Another Order
 
 Track Order Page
 Check order status using order ID, Customer Name, and Cake Flavours
