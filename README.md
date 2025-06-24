@@ -39,6 +39,5 @@ Includes a FAQ section with a searchable list of questions
 
 📦 Tech Stack
 Frontend: HTML, SCSS, Typescript
-
 UI Framework: Bootstrap, AngularJS
 
