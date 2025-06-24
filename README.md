@@ -20,20 +20,20 @@ Shipping & Delivery
 Privacy Policy
 Social Media Follow Links
 
-Order Page
+Cake Order Page which includes
 Step-by-step guide for placing orders
 Cake Order Form
 Buttons for:
 Download Receipt and Place Another Order
 
 Track Order Page
-Check order status using order ID, Customer Name, and Cake Flavours
+For Check order status using order ID, Customer Name, and Cake Flavours
 
 Make Payment Page
-Accepts Cash and Card payments
+To Accepts Cash and Card payments
 Generates receipts for both modes
 
-Contact Us Page for sharing any type of cake related complaints
+Contact Us Page for sharing any type of Cake related complaints
 Includes a FAQ section with a searchable list of questions
 
 📦 Tech Stack
