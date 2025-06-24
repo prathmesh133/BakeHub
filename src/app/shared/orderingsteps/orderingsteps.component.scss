@@ -1,0 +1,30 @@
+ .container-fluid {
+     background-color: rgb(232, 226, 193);
+ }
+
+ .step-box {
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     padding: 20px;
+     transition: transform 0.3s ease;
+     background-color: #fff;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+ }
+
+ .step-number {
+     font-size: 2rem;
+     font-weight: bold;
+     color: #ff5c5c;
+ }
+
+ .step-title {
+     font-size: 1.2rem;
+     font-weight: 600;
+     margin-top: 10px;
+ }
+
+ @media (max-width: 576px) {
+     .step-title {
+         font-size: 1rem;
+     }
+ }

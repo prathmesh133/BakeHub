@@ -1,0 +1,19 @@
+.logo{
+  width: 70px;
+}
+
+.nav-link {
+    color: #ffffff!important;
+    cursor: pointer;
+}
+
+.active{
+    color: #8490ff!important;
+}
+
+@media screen and (max-width:992px){
+  .search-bar{
+    margin-top: 12px;
+  }
+}
+  

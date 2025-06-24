@@ -1,0 +1,89 @@
+.container-fluid {
+  background-color: rgb(232, 226, 193);
+}
+
+.card,
+form {
+  background-color: rgb(232, 226, 193);
+}
+
+.text-danger,
+.text-warning,
+.text-success,
+.text-primary {
+  cursor: pointer;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.info-text h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.info-text p {
+  margin: 0;
+  color: #6c757d;
+}
+
+form {
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.submit-btn:hover {
+  background-color: #bd9541;
+  border: 2px solid #030b17;
+}
+
+.reset-btn:hover {
+  background-color: #522d2d;
+  border: 2px solid #030b17;
+}
+
+@media screen and (max-width: 576px) {
+  .btn {
+    width: 100%;
+  }
+
+  .row.g-3 .col-12 {
+    margin-bottom: 1rem;
+  }
+
+  .col-12.d-flex {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .btn {
+    min-width: 140px;
+  }
+
+  .col-12.d-flex {
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .btn {
+    min-width: 150px;
+  }
+
+  .col-12.d-flex {
+    gap: 1rem;
+  }
+}
