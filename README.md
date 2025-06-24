@@ -37,7 +37,9 @@ Contact Us Page for sharing any type of Cake related complaints also,
 includes a FAQ section with a searchable list of questions
 
 📦 Tech Stack
-Frontend: HTML, SCSS, Typescript
+Frontend: 
+HTML, SCSS, Typescript
 
-UI Framework: Bootstrap, AngularJS
+UI Frameworks: 
+Bootstrap, AngularJS
 
