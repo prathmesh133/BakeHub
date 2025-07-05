@@ -1,0 +1,25 @@
+.container-fluid {
+    padding: 15px;
+    background-color: rgb(232, 226, 193);
+}
+
+.accordion-button {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.accordion-body {
+    font-size: 0.95rem;
+}
+
+
+.search-btn:hover {
+    background-color: #73ac0a;
+    border: 2px solid #030b17;
+}
+
+@media (min-width: 576px) {
+    .container-fluid {
+        padding: 2rem;
+    }
+}

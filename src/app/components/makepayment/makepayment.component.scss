@@ -1,0 +1,36 @@
+.bg-wrapper {
+  background-color: rgb(232, 226, 193);
+}
+
+.card {
+  background-color: rgb(232, 226, 193);
+}
+
+.btn-primary:hover {
+  background-color: #485c04 !important;
+  border: 2px solid #030912 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #877406 !important;
+  border: 2px solid #000102 !important;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+
+@media (max-width: 576px) {
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  .form-check-label {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,50 @@
+ .container-fluid {
+     background-color: rgb(232, 226, 193);
+ }
+
+ .about-wrapper {
+     background-color: rgb(232, 226, 193);
+     padding: 2rem;
+     border-radius: 1rem;
+     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+ }
+
+ .about-heading {
+     font-size: 2rem;
+     font-weight: bold;
+     color: black;
+ }
+
+ .about-subheading {
+     font-size: 1.25rem;
+     font-weight: 500;
+     color: black;
+ }
+
+ .about-text {
+     font-size: 1rem;
+     line-height: 1.7;
+     color: #333;
+ }
+
+ ul {
+     padding-left: 1.25rem;
+ }
+
+ li {
+     margin-bottom: 0.5rem;
+ }
+
+ @media (min-width: 768px) {
+     .about-heading {
+         font-size: 2.5rem;
+     }
+
+     .about-subheading {
+         font-size: 1.5rem;
+     }
+
+     .about-text {
+         font-size: 1.1rem;
+     }
+ }

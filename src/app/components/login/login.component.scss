@@ -1,0 +1,39 @@
+.container-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(232, 226, 193);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border:1px solid black;
+  background-color: rgb(232, 226, 193);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.password-input {
+  padding-right: 2.5rem;
+}
+
+.password-eye {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+a {
+  cursor: pointer;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,43 @@
+.container-fluid {
+    background-color: rgb(232, 226, 193);
+}
+
+.card {
+    background-color: rgb(232, 226, 193);
+}
+
+header {
+    padding: 2rem 1rem;
+}
+
+form,
+.order-summary {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.order-summary {
+    margin-top: 2rem;
+}
+
+.btn-success:hover {
+    background-color: #145a32 !important;
+    border: 2px solid #000000;
+}
+
+.btn-primary:hover {
+    background-color: #004085 !important;
+    border: 2px solid #000000;
+}
+
+.btn-warning:hover {
+    background-color: #b35c00 !important;
+    border: 2px solid #000000;
+}
+
+@media screen and (max-width: 576px) {
+    .btn-secondary {
+        width: 120px;
+    }
+}

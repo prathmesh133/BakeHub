@@ -1,0 +1,84 @@
+
+<div class="container-fluid d-flex flex-column justify-content-start align-items-center p-4 p-md-5">
+  <div class="card w-100 shadow-lg rounded-4 border border-secondary p-4 p-md-5">
+    <h2 class="text-center text-dark fw-bold mb-4">Contact Us</h2>
+
+    <div class="row text-center mb-4">
+      <div class="col-md-3">
+        <i class="fas fa-envelope fa-2x mb-2 text-primary"></i>
+        <h6>EMAIL</h6>
+        <p>bakehub&#64;gmail.com</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fa-solid fa-phone fa-2x mb-2 text-success"></i>
+        <h6>CONTACT NO</h6>
+        <p>+91 9876543210</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fas fa-clock fa-2x mb-2 text-warning"></i>
+        <h6>WORKING HOURS</h6>
+        <p>Mon - Sat: 9am - 6pm</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fas fa-map-marker-alt fa-2x mb-2 text-danger"></i>
+        <h6>LOCATION</h6>
+        <p>11 Aberdeen Street, Boston MA, USA 02215</p>
+      </div>
+    </div>
+
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" [(ngModel)]="contact.name" required #name="ngModel" placeholder="Enter your name" />
+          <small class="text-danger" *ngIf="name.invalid && name.touched">Name is required</small>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="contact.email" required #email="ngModel" placeholder="Enter your email" />
+          <small class="text-danger" *ngIf="email.invalid && email.touched">Valid email is required</small>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Phone</label>
+          <input type="text" class="form-control" name="phoneno" [(ngModel)]="contact.phoneno" required #phoneno="ngModel" placeholder="Enter your phone number" />
+          <small class="text-danger" *ngIf="phoneno.invalid && phoneno.touched">Phone number is required</small>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Subject</label>
+          <input type="text" class="form-control" name="subject" [(ngModel)]="contact.subject" required #subject="ngModel" placeholder="Subject of complaint" />
+          <small class="text-danger" *ngIf="subject.invalid && subject.touched">Subject is required</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Message / Complaint</label>
+        <textarea class="form-control" rows="4" name="message" [(ngModel)]="contact.message" required #message="ngModel" placeholder="Write your complaint here"></textarea>
+        <small class="text-danger" *ngIf="message.invalid && message.touched">Message is required</small>
+      </div>
+
+      <div class="d-flex gap-3">
+        <button type="submit" class="btn btn-primary px-4 submit-btn">Submit</button>
+        <button type="reset" class="btn btn-secondary px-4 reset-btn" (click)="contactForm.resetForm()">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3 z-3">
+  <div id="contactSuccessToast" class="toast bg-success text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+    <div class="d-flex align-items-center">
+      <div class="toast-body">Thank you! We'll respond soon.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+
+  <div id="contactErrorToast" class="toast bg-danger text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+    <div class="d-flex align-items-center">
+      <div class="toast-body">Please fill all required fields correctly.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>

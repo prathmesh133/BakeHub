@@ -1,0 +1,16 @@
+.container-fluid{
+  background-color: rgb(232, 226, 193);
+}
+
+.card {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #674c56;
+  border-radius: 50%;
+}

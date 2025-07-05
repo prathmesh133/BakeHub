@@ -1,0 +1,40 @@
+.container-fluid{
+  background-color: rgb(232, 226, 193);
+}
+
+.services-icon-wap {
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.services-icon-wap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.services-icon-wap .h1 i {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .services-icon-wap {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    height: 100%; 
+  }
+
+  .services-icon-wap .h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .services-icon-wap h2 {
+    font-size: 1.2rem;
+  }
+}
+
+

@@ -1,0 +1,126 @@
+<div class="container-fluid p-5">
+    <div class="card shadow-lg border border-secondary rounded-4 p-4">
+        <header class="text-center mb-4">
+            <h1 class="text-dark">Order Your Favorite Cake</h1>
+        </header>
+
+        <form #orderForm="ngForm" class="row g-3" (ngSubmit)="submitOrder(orderForm)" novalidate>
+
+            <div class="col-md-6">
+                <label class="form-label">Order ID</label>
+                <input type="text" class="form-control" required [(ngModel)]="order.orderId" name="orderId"
+                    #orderId="ngModel">
+                <small class="text-danger" *ngIf="orderId.invalid && orderId.touched">Order ID is required</small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" required [(ngModel)]="order.name" name="name" #name="ngModel">
+                <small class="text-danger" *ngIf="name.invalid && name.touched">Name is required</small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" required [(ngModel)]="order.email" name="email"
+                    #email="ngModel">
+                <small class="text-danger" *ngIf="email.invalid && email.touched">Valid email is required</small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Contact No</label>
+                <input type="text" class="form-control" required [(ngModel)]="order.contactNo" name="contactNo"
+                    #contactNo="ngModel">
+                <small class="text-danger" *ngIf="contactNo.invalid && contactNo.touched">Contact number is
+                    required</small>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Address</label>
+                <textarea class="form-control" rows="3" required [(ngModel)]="order.address" name="address"
+                    #address="ngModel"></textarea>
+                <small class="text-danger" *ngIf="address.invalid && address.touched">Address is required</small>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <label class="form-label">Date</label>
+                <input type="date" class="form-control" required [(ngModel)]="order.date" name="date" #date="ngModel">
+                <small class="text-danger" *ngIf="date.invalid && date.touched">Date is required</small>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <label class="form-label">Time</label>
+                <input type="time" class="form-control" required [(ngModel)]="order.time" name="time" #time="ngModel">
+                <small class="text-danger" *ngIf="time.invalid && time.touched">Time is required</small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Cake Flavour</label>
+                <select class="form-select" required [(ngModel)]="order.cakeFlavour" name="cakeFlavour"
+                    #cakeFlavour="ngModel">
+                    <option value="" disabled selected>-- Select Flavour --</option>
+                    <option>Chocolate Cake - 250Rs</option>
+                    <option>Vanilla Cake - 150Rs</option>
+                    <option>Red Velvet Cake - 320Rs</option>
+                    <option>Cheese Cake - 230Rs</option>
+                    <option>Strawberry Cake - 280Rs</option>
+                    <option>Butterscotch Cake - 260Rs</option>
+                </select>
+                <small class="text-danger" *ngIf="cakeFlavour.invalid && cakeFlavour.touched">Flavour is
+                    required</small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Quantity</label>
+                <input type="number" min="1" max="10" class="form-control" required [(ngModel)]="order.quantity"
+                    name="quantity" #quantity="ngModel">
+                <small class="text-danger" *ngIf="quantity.invalid && quantity.touched">Quantity is required</small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Message on Cake</label>
+                <input type="text" class="form-control" [(ngModel)]="order.message" name="message">
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Place Order</button>
+            </div>
+        </form>
+
+        <div *ngIf="submitted" class="order-summary mt-5 border-top pt-4">
+            <h3 class="mb-3 text-center">Order Summary</h3>
+            <p><strong>Order Id:</strong> {{order.orderId}}</p>
+            <p><strong>Name:</strong> {{order.name}}</p>
+            <p><strong>Email:</strong> {{order.email}}</p>
+            <p><strong>Address:</strong> {{order.address}}</p>
+            <p><strong>Contact No:</strong> {{order.contactNo}}</p>
+            <p><strong>Date:</strong> {{order.date}}</p>
+            <p><strong>Time:</strong> {{order.time}}</p>
+            <p><strong>Cake Flavour:</strong> {{order.cakeFlavour}}</p>
+            <p><strong>Quantity:</strong> {{order.quantity}}</p>
+            <p><strong>Message:</strong> {{order.message}}</p>
+
+            <div class="d-flex flex-column flex-sm-row gap-2 mt-3">
+                <button class="btn btn-primary" (click)="downloadReceipt()">Download Receipt</button>
+                <button class="btn btn-warning" (click)="resetOrder()">Place Another Order</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="successToast" class="toast text-white bg-success border-0 shadow" role="alert" data-bs-delay="3000">
+            <div class="toast-body d-flex justify-content-between align-items-center">
+                <span class="toast-message"><i class="fas fa-check-circle me-2"></i></span>
+                <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div id="errorToast" class="toast text-white bg-danger border-0 shadow" role="alert" data-bs-delay="3000">
+            <div class="toast-body d-flex justify-content-between align-items-center">
+                <span class="toast-message"><i class="fas fa-exclamation-triangle me-2"></i></span>
+                <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>

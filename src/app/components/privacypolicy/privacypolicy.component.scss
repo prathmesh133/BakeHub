@@ -1,0 +1,50 @@
+   .container-fluid {
+       background-color: rgb(232, 226, 193);
+   }
+
+   .privacy-container {
+       background-color: rgb(232, 226, 193);
+       border-radius: 1rem;
+       padding: 2rem;
+       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   }
+
+   .privacy-title {
+       color: black;
+       font-size: 2rem;
+       font-weight: 700;
+   }
+
+   .privacy-subtitle {
+       color: black;
+       font-size: 1.25rem;
+       font-weight: 500;
+   }
+
+   .privacy-text {
+       color: #333;
+       font-size: 1rem;
+       line-height: 1.7;
+   }
+
+   ul {
+       padding-left: 1.5rem;
+   }
+
+   li {
+       margin-bottom: 0.5rem;
+   }
+
+   @media (min-width: 768px) {
+       .privacy-title {
+           font-size: 2.5rem;
+       }
+
+       .privacy-subtitle {
+           font-size: 1.5rem;
+       }
+
+       .privacy-text {
+           font-size: 1.1rem;
+       }
+   }

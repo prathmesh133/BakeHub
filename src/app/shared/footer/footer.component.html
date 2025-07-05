@@ -1,0 +1,66 @@
+<div class="container-fluid bg-dark text-white">
+    <div class="row">
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3 footer">
+            <h4 class="connecton text-white mt-4">Let's Connect On</h4>
+            <div class="mt-3">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="ms-2">11 Aberdeen Street, Boston MA, USA 02215</span><br>
+                <i class="mt-2 fa-solid fa-envelope"></i>
+                <span class="ms-2">bakehub&#64;gmail.com</span><br>
+                <i class="mt-2 fa-solid fa-phone"></i>
+                <span class="ms-2">+91 9876543210</span><br>
+                <i class="fa-solid fa-clock"></i>
+                <span class="ms-2">Working Hours: Mon - Sat: 9Am - 6Pm</span>
+                <h6 class="mt-2">
+                    We provide a seamless and user-friendly platform for customers to browse, customize, order, and
+                    track
+                    cakes online, while ensuring efficient order processing, timely delivery, and excellent customer
+                    satisfaction.
+                </h6>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3 footer">
+            <h4 class="text-white mt-4">Newsletters</h4>
+            <h6 class="latest-trends text-white mt-3 mb-2">Subscribe & stay updated with our latest offers</h6>
+            <div class="input-group">
+                <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+                    <input type="email" formControlName="email" class="form-control" placeholder="Enter Email Address">
+                    <div class="d-flex flex-row gap-2 mt-3">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                        <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3 footer">
+            <h5 class="usefullinks mt-4">Policies</h5>
+            <div class="fw-semibold mt-3">
+                <a href="/about" class="text-white text-decoration-none">About Us </a><br>
+                <a href="/termsandconditions" class="text-white text-decoration-none">Terms & Conditions </a><br>
+                <a href="/returnandrefund" class="text-white text-decoration-none">Return & Refunds</a><br>
+                <a href="/shippinganddelivery" class="text-white text-decoration-none">Shipping & Delivery</a><br>
+                <a href="/privacypolicy" class="text-white text-decoration-none">Privacy Policy</a>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3 social">
+            <h4 class="follow mt-4">Follow Me</h4>
+            <div class="social mt-3">Let us be social</div>
+            <div class="media d-flex align-items-center mt-3">
+                <i class="facebook fa-brands fa-facebook ms-2"></i>
+                <i class="twitter fa-brands fa-twitter ms-3"></i>
+                <i class="fa-brands fa-youtube ms-3"></i>
+                <i class="fa-brands fa-square-instagram ms-3"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-4 text-center">
+            <h3>BakeHub</h3>
+            <h5 class="copyright">Copyright ©2025 | All Rights Reserved</h5>
+        </div>
+    </div>
+</div>
