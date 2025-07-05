@@ -1,59 +1,17 @@
-# OnlineCakeOrderingSystem
+🍰 BakeHub - A Online Cake Ordering WebPage BakeHub is a responsive and user-friendly Angular project designed to simplify the process of browsing, ordering, and managing cakes online. It features a visually appealing interface with intuitive navigation and smooth user experience.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+🔑 Key Features Homepage Navigation Bar with Header section Bootstrap Carousel for showcasing featured cakes "Our Services" section Best Selling Categories and Products Customer Ratings / Happy Customers section
 
-## Development server
+Footer section with: Contact Info (Address, Phone, Email, Working Hours) Newsletter Subscription Company Policies: About Us Terms & Conditions Return & Refunds Shipping & Delivery Privacy Policy Social Media Follow Links
 
-To start a local development server, run:
+Cake Order Page which includes Step-by-step guide for placing orders Cake Order Form Buttons for: Download Receipt and Place Another Order
 
-```bash
-ng serve
-```
+Track Order Page For Check order status using order ID, Customer Name, and Cake Flavours
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Make Payment Page To Accepts Cash and Card payments Generates receipts for both modes
 
-## Code scaffolding
+Contact Us Page for sharing any type of Cake related complaints also, includes a FAQ section with a searchable list of questions
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📦 Tech Stack Frontend: HTML, SCSS, Typescript
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+UI Frameworks: Bootstrap, AngularJS
