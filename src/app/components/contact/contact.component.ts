@@ -1,25 +1,32 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
-  contact = {
-    name: '',
-    email: '',
-    phoneno: '',
-    subject: '',
-    message: ''
-  };
+export class ContactComponent implements OnInit {
+  contactForm!: FormGroup;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private fb: FormBuilder,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  showToast(toastId: string) {
+  ngOnInit(): void {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phoneno: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      subject: ['', Validators.required],
+      message: ['', Validators.required]
+    });
+  }
+
+  showToast(toastId: string): void {
     if (isPlatformBrowser(this.platformId)) {
       const toastEl = document.getElementById(toastId);
       if (toastEl && (window as any).bootstrap?.Toast) {
@@ -29,13 +36,14 @@ export class ContactComponent {
     }
   }
 
-  onSubmit(form: NgForm) {
-    if (form.valid) {
-      console.log('Form Data:', this.contact);
+  onSubmit(): void {
+    if (this.contactForm.valid) {
+      console.log('Form Data:', this.contactForm.value);
       this.showToast('contactSuccessToast');
-      form.resetForm();
+      this.contactForm.reset();
     } else {
       this.showToast('contactErrorToast');
+      this.contactForm.markAllAsTouched();
     }
   }
 }

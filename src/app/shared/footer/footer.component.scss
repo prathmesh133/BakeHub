@@ -1,46 +1,48 @@
-.btn-primary {
-    &:hover {
-        background-color: teal;
-    }
+.footer a {
+  transition: color 0.3s ease;
 }
 
-.btn-secondary {
-    &:hover {
-        background-color: rgb(57, 60, 86);
-    }
+.footer a:hover {
+  color: #acff07 !important;
 }
 
-.footer {
-    h6 {
-        cursor: pointer;
-    }
-
-    i {
-        transition: color 0.3s ease;
-        cursor: pointer;
-
-        &:hover {
-            color: #ffc107;
-        }
-    }
-
-    a {
-        transition: color 0.3s ease;
-
-        &:hover {
-            color: #3c07ec !important;
-        }
-    }
+.footer i {
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.media {
-    i {
-        font-size: 1.5rem;
-        transition: color 0.3s ease;
-        cursor: pointer;
+.footer i:hover {
+  color: #34e7f8;
+}
 
-        &:hover {
-            color: #7b59bf;
-        }
-    }
+.btn-primary:hover {
+  background-color: rgb(95, 79, 116);
+}
+
+.btn-secondary:hover {
+  background-color: rgb(101, 115, 236);
+}
+
+select {
+  background-color: #212529;
+  color: #fff;
+  border-color: #555;
+}
+
+
+.quick-links a:hover {
+  color: #0883ff !important; 
+}
+
+.policies a:hover {
+  color: #ff9742 !important; 
+}
+
+.contact-info i:hover {
+  color: #0ff197 !important; 
+  cursor:pointer;
+}
+
+.social-links .fab:hover {
+  color: #af69ff !important;
 }

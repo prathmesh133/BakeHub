@@ -1,78 +1,109 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, ViewChild, ElementRef} from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-makepayment',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './makepayment.component.html',
   styleUrls: ['./makepayment.component.scss']
 })
-export class MakepaymentComponent {
+export class MakepaymentComponent implements OnInit {
+  paymentForm!: FormGroup;
   paymentMode: string = 'card';
-  cakeFlavour: string = '';
   paymentSummary: any = null;
 
-  payer = { name: '' };
-  card = {
-    number: '',
-    amount: null,
-    type: '',
-    expiry: '',
-    cvv: '',
-    payDateTime: ''
-  };
+  @ViewChild('receipt', { static: false }) receiptRef!: ElementRef;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private fb: FormBuilder,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  proceedCardPayment(form: NgForm) {
-    if (this.paymentMode === 'cash') {
-      if (!this.payer.name || !this.cakeFlavour || !this.card.amount || !this.card.payDateTime) {
-        this.showToast('contactErrorToast');
-        return;
-      }
+  ngOnInit() {
+    this.paymentForm = this.fb.group({
+      paymentMode: ['card'],
+      payerName: ['', Validators.required],
+      cakeFlavour: ['', Validators.required],
+      amount: [null, [Validators.required, Validators.min(1)]],
+      payDateTime: ['', Validators.required],
+      number: [''],
+      type: [''],
+      expiry: [''],
+      cvv: ['']
+    });
 
-      this.paymentSummary = {
-        payerName: this.payer.name,
-        amount: this.card.amount,
-        cakeFlavour: this.cakeFlavour,
-        payDateTime: this.card.payDateTime,
-        mode: 'Cash on Delivery'
-      };
-      this.showToast('contactSuccessToast');
-      form.resetForm();
-      this.paymentMode = 'cash';
-      return;
-    }
+    this.onPaymentModeChange();
+  }
 
-    if (
-      !this.payer.name || !this.card.number || !this.card.amount ||
-      !this.card.type || !this.card.expiry || !this.card.cvv ||
-      !this.card.payDateTime || !this.cakeFlavour
-    ) {
+  onPaymentModeChange() {
+    this.paymentForm.get('paymentMode')?.valueChanges.subscribe(mode => {
+      this.paymentMode = mode;
+      const cardControls = ['number', 'type', 'expiry', 'cvv'];
+
+      cardControls.forEach(control => {
+        const formControl = this.paymentForm.get(control);
+        if (mode === 'card') {
+          formControl?.setValidators(Validators.required);
+        } else {
+          formControl?.clearValidators();
+          formControl?.reset();
+        }
+        formControl?.updateValueAndValidity();
+      });
+    });
+  }
+
+  proceedCardPayment() {
+    if (this.paymentForm.invalid) {
       this.showToast('contactErrorToast');
       return;
     }
 
+    const data = this.paymentForm.value;
     this.paymentSummary = {
-      payerName: this.payer.name,
-      amount: this.card.amount,
-      type: this.card.type,
-      number: this.card.number,
-      payDateTime: this.card.payDateTime,
-      cakeFlavour: this.cakeFlavour,
-      mode: 'Card Payment'
+      payerName: data.payerName,
+      cakeFlavour: data.cakeFlavour,
+      amount: data.amount,
+      payDateTime: data.payDateTime,
+      mode: data.paymentMode === 'card' ? 'Card Payment' : 'Cash on Delivery',
+      ...(data.paymentMode === 'card' && {
+        type: data.type,
+        number: data.number
+      })
     };
 
     this.showToast('contactSuccessToast');
-    form.resetForm();
+    this.paymentForm.reset({ paymentMode: 'card' });
     this.paymentMode = 'card';
   }
 
-  resetCard(form: NgForm) {
-    form.resetForm();
+  resetCard() {
+    this.paymentForm.reset({ paymentMode: 'card' });
     this.paymentSummary = null;
     this.paymentMode = 'card';
+  }
+
+  generateReceipt() {
+    if (!this.paymentSummary || !this.receiptRef) {
+      this.showToast('contactErrorToast');
+      return;
+    }
+
+    html2canvas(this.receiptRef.nativeElement).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('payment-receipt.pdf');
+      this.showToast('receiptGeneratedToast');
+    }).catch(() => {
+      this.showToast('contactErrorToast');
+    });
   }
 
   showToast(toastId: string) {
@@ -85,5 +116,3 @@ export class MakepaymentComponent {
     }
   }
 }
-
-

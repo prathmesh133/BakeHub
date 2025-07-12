@@ -1,147 +1,125 @@
 <div class="container-fluid bg-wrapper py-4">
-    <div class="payment-wrapper mx-auto px-2 px-md-4">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-11 col-md-10 col-lg-8">
-                <div class="card p-3 p-md-4 shadow-lg rounded-4 border border-secondary">
-                    <div class="mb-3 text-center">
-                        <h3 class="text-center text-dark fw-bold mb-4">Make a Payment</h3>
-                    </div>
+  <div class="payment-wrapper mx-auto px-2 px-md-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-11 col-md-10 col-lg-8">
+        <div class="card p-3 p-md-4 shadow-lg rounded-4 border border-secondary">
+          <h1 class="text-center text-dark fw-bold mb-4">Make Payment</h1>
 
-                    <div class="mb-3">
-                        <strong class="d-block mb-2">Payment Mode:</strong>
-                        <div class="d-flex flex-column gap-2 ps-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMode" id="cod" value="cash"
-                                    [(ngModel)]="paymentMode">
-                                <label class="form-check-label" for="cod">Cash on Delivery</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMode" id="card" value="card"
-                                    [(ngModel)]="paymentMode">
-                                <label class="form-check-label" for="card">Pay with Card</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form #cardForm="ngForm" (ngSubmit)="proceedCardPayment(cardForm)" novalidate>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Your Name:</label>
-                                <input type="text" class="form-control" placeholder="Enter your name" name="payerName"
-                                    required [(ngModel)]="payer.name" #payerName="ngModel">
-                                <small class="text-danger" *ngIf="payerName.invalid && payerName.touched">Name is
-                                    required</small>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label">Cake Ordered:</label>
-                                <select class="form-select" required [(ngModel)]="cakeFlavour" name="cakeFlavour"
-                                    #cakeFlavourModel="ngModel">
-                                    <option value="" disabled>-- Select Flavour --</option>
-                                    <option>Chocolate Cake - 250Rs</option>
-                                    <option>Vanilla Cake - 150Rs</option>
-                                    <option>Red Velvet Cake - 320Rs</option>
-                                    <option>Cheese Cake - 230Rs</option>
-                                    <option>Strawberry Cake - 280Rs</option>
-                                    <option>Butterscotch Cake - 260Rs</option>
-                                </select>
-                                <small class="text-danger"
-                                    *ngIf="cakeFlavourModel.invalid && cakeFlavourModel.touched">Flavour is
-                                    required</small>
-                            </div>
-
-                            <div class="col-md-6" *ngIf="paymentMode === 'card'">
-                                <label class="form-label">Card Number</label>
-                                <input type="text" class="form-control" name="number" required [(ngModel)]="card.number"
-                                    #number="ngModel">
-                                <small class="text-danger" *ngIf="number.invalid && number.touched">Card number is
-                                    required</small>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label">Pay Amount</label>
-                                <input type="number" class="form-control" name="amount" min="1" required
-                                    [(ngModel)]="card.amount" #amount="ngModel">
-                                <small class="text-danger" *ngIf="amount.invalid && amount.touched">Pay amount is
-                                    required</small>
-                            </div>
-
-                            <div class="col-md-6" *ngIf="paymentMode === 'card'">
-                                <label class="form-label">Card Type</label>
-                                <select class="form-select" name="type" required [(ngModel)]="card.type"
-                                    #type="ngModel">
-                                    <option value="" disabled>Select Card Type</option>
-                                    <option value="debit">Debit Card</option>
-                                    <option value="credit">Credit Card</option>
-                                    <option value="Visa">Visa</option>
-                                    <option value="MasterCard">MasterCard</option>
-                                    <option value="Rupay">Rupay</option>
-                                </select>
-                                <small class="text-danger" *ngIf="type.invalid && type.touched">Card type is
-                                    required</small>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label">Pay Date & Time</label>
-                                <input type="datetime-local" class="form-control" name="payDateTime" required
-                                    [(ngModel)]="card.payDateTime" #payDateTime="ngModel">
-                                <small class="text-danger" *ngIf="payDateTime.invalid && payDateTime.touched">Pay date
-                                    and time is required</small>
-                            </div>
-
-                            <div class="col-md-6" *ngIf="paymentMode === 'card'">
-                                <label class="form-label">Expiry Date</label>
-                                <input type="month" class="form-control" name="expiry" required
-                                    [(ngModel)]="card.expiry" #expiry="ngModel">
-                                <small class="text-danger" *ngIf="expiry.invalid && expiry.touched">Expiry date is
-                                    required</small>
-                            </div>
-
-                            <div class="col-md-6" *ngIf="paymentMode === 'card'">
-                                <label class="form-label">CVV</label>
-                                <input type="password" class="form-control" name="cvv" required maxlength="3"
-                                    [(ngModel)]="card.cvv" #cvv="ngModel">
-                                <small class="text-danger" *ngIf="cvv.invalid && cvv.touched">CVV is required</small>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
-                            <button type="submit" class="btn btn-primary">Proceed Payment</button>
-                            <button type="button" class="btn btn-secondary" (click)="resetCard(cardForm)">Reset</button>
-                        </div>
-                    </form>
-
-                    <div *ngIf="paymentSummary" class="alert alert-success mt-4">
-                        <h5>Payment Receipt</h5>
-                        <p><strong>Payer:</strong> {{ paymentSummary.payerName }}</p>
-                        <p><strong>Cake Flavour:</strong> {{ paymentSummary.cakeFlavour }}</p>
-                        <p><strong>Amount:</strong> ₹{{ paymentSummary.amount }}</p>
-                        <p *ngIf="paymentSummary.type"><strong>Card:</strong> {{ paymentSummary.type }} (****{{
-                            paymentSummary.number?.slice(-4) }})</p>
-                        <p><strong>Payment Mode:</strong> {{ paymentSummary.mode }}</p>
-                        <p><strong>Payment Date:</strong> {{ paymentSummary.payDateTime }}</p>
-                    </div>
-                </div>
+          <form [formGroup]="paymentForm" (ngSubmit)="proceedCardPayment()">
+            <div class="mb-3">
+              <strong class="d-block mb-2">Payment Mode:</strong>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="cash" formControlName="paymentMode" id="cod">
+                <label class="form-check-label" for="cod">Cash on Delivery</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="card" formControlName="paymentMode" id="card">
+                <label class="form-check-label" for="card">Pay with Card</label>
+              </div>
             </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Your Name</label>
+                <input class="form-control" formControlName="payerName">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Cake Ordered</label>
+                <select class="form-select" formControlName="cakeFlavour">
+                  <option value="" disabled>-- Select Flavour --</option>
+                  <option>Chocolate Cake - 250Rs</option>
+                  <option>Vanilla Cake - 150Rs</option>
+                  <option>Red Velvet Cake - 320Rs</option>
+                  <option>Cheese Cake - 230Rs</option>
+                  <option>Strawberry Cake - 280Rs</option>
+                  <option>Butterscotch Cake - 260Rs</option>
+                </select>
+              </div>
+
+              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+                <label class="form-label">Card Number</label>
+                <input class="form-control" formControlName="number" />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Pay Amount</label>
+                <input type="number" class="form-control" formControlName="amount">
+              </div>
+
+              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+                <label class="form-label">Card Type</label>
+                <select class="form-select" formControlName="type">
+                  <option value="" disabled>Select Card Type</option>
+                  <option value="debit">Debit Card</option>
+                  <option value="credit">Credit Card</option>
+                  <option value="Visa">Visa</option>
+                  <option value="MasterCard">MasterCard</option>
+                  <option value="Rupay">Rupay</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Pay Date & Time</label>
+                <input type="datetime-local" class="form-control" formControlName="payDateTime">
+              </div>
+
+              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+                <label class="form-label">Expiry Date</label>
+                <input type="month" class="form-control" formControlName="expiry">
+              </div>
+
+              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+                <label class="form-label">CVV</label>
+                <input type="password" maxlength="3" class="form-control" formControlName="cvv">
+              </div>
+            </div>
+
+            <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+              <button type="submit" class="btn btn-primary">Proceed Payment</button>
+              <button type="button" class="btn btn-secondary" (click)="resetCard()">Reset</button>
+            </div>
+          </form>
+
+          <div *ngIf="paymentSummary" #receipt class="alert alert-success mt-4">
+            <h5>Payment Receipt</h5>
+            <p><strong>Payer:</strong> {{ paymentSummary.payerName }}</p>
+            <p><strong>Cake Flavour:</strong> {{ paymentSummary.cakeFlavour }}</p>
+            <p><strong>Amount:</strong> ₹{{ paymentSummary.amount }}</p>
+            <p *ngIf="paymentSummary.type">
+              <strong>Card:</strong> {{ paymentSummary.type }} (****{{ paymentSummary.number?.slice(-4) }})
+            </p>
+            <p><strong>Payment Mode:</strong> {{ paymentSummary.mode }}</p>
+            <p><strong>Payment Date:</strong> {{ paymentSummary.payDateTime }}</p>
+
+            <button class="btn btn-success" (click)="generateReceipt()">Download Receipt</button>
+
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3 z-3">
-    <div id="contactSuccessToast" class="toast bg-success text-white border-0" role="alert" data-bs-delay="3000"
-        aria-live="assertive" aria-atomic="true">
-        <div class="d-flex align-items-center">
-            <div class="toast-body">Payment processed successfully!</div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                aria-label="Close"></button>
-        </div>
+  <div id="contactSuccessToast" class="toast bg-success text-white border-0" role="alert" data-bs-delay="3000">
+    <div class="d-flex align-items-center">
+      <div class="toast-body">Payment processed successfully! Receipt shown below.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
-    <div id="contactErrorToast" class="toast bg-danger text-white border-0" role="alert" data-bs-delay="3000"
-        aria-live="assertive" aria-atomic="true">
-        <div class="d-flex align-items-center">
-            <div class="toast-body">Please fill all required fields correctly.</div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                aria-label="Close"></button>
-        </div>
+  </div>
+
+  <div id="contactErrorToast" class="toast bg-danger text-white border-0" role="alert" data-bs-delay="3000">
+    <div class="d-flex align-items-center">
+      <div class="toast-body">Please fill all required fields correctly.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
+  </div>
+
+  <div id="receiptGeneratedToast" class="toast bg-info text-white border-0" role="alert" data-bs-delay="3000">
+    <div class="d-flex align-items-center">
+      <div class="toast-body">Receipt generated successfully!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
 </div>

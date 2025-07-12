@@ -3,32 +3,22 @@
     <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
       <div class="card shadow rounded-4 border border-secondary mt-5 mb-5">
         <div class="card-body">
-          <h3 class="text-center text-dark fw-bold mb-4">Track Your Cake Order</h3>
-          <form (ngSubmit)="trackOrder(trackForm)" #trackForm="ngForm" novalidate>
-
+          <h2 class="text-center text-dark fw-bold mb-4">Track Your Cake Order</h2>
+          <form [formGroup]="trackForm" (ngSubmit)="trackOrder()">
             <div class="mb-3">
               <label class="form-label fw-semibold">Order ID</label>
-              <input type="text" class="form-control rounded-3" placeholder="Enter order id"
-                [(ngModel)]="orderId" name="orderId" required #orderIdField="ngModel" />
-              <small class="text-danger" *ngIf="orderIdField.invalid && orderIdField.touched">
-                Order ID is required.
-              </small>
+              <input type="text" class="form-control rounded-3" placeholder="Enter order id" formControlName="orderId">
             </div>
 
             <div class="mb-3">
               <label class="form-label fw-semibold">Customer Name</label>
-              <input type="text" class="form-control rounded-3" placeholder="Enter customer name"
-                [(ngModel)]="customerName" name="customerName" required #customerNameField="ngModel" />
-              <small class="text-danger" *ngIf="customerNameField.invalid && customerNameField.touched">
-                Customer name is required.
-              </small>
+              <input type="text" class="form-control rounded-3" placeholder="Enter customer name" formControlName="customerName">
             </div>
 
             <div class="mb-3">
               <label class="form-label fw-semibold">Cake Flavours with Price</label>
-              <select class="form-select rounded-3" [(ngModel)]="cakeFlavour" name="cakeFlavour"
-                required #cakeFlavourField="ngModel">
-                <option value="" disabled selected>-- Select Flavour --</option>
+              <select class="form-select rounded-3" formControlName="cakeFlavour">
+                <option value="" disabled>-- Select Flavour --</option>
                 <option>Chocolate Cake - 250Rs</option>
                 <option>Vanilla Cake - 150Rs</option>
                 <option>Red Velvet Cake - 320Rs</option>
@@ -36,9 +26,6 @@
                 <option>Strawberry Cake - 280Rs</option>
                 <option>Butterscotch Cake - 260Rs</option>
               </select>
-              <small class="text-danger" *ngIf="cakeFlavourField.invalid && cakeFlavourField.touched">
-                Cake flavour is required.
-              </small>
             </div>
 
             <div class="d-flex justify-content-between gap-2 mt-4">

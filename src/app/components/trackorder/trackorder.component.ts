@@ -1,29 +1,41 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-trackorder',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './trackorder.component.html',
   styleUrls: ['./trackorder.component.scss']
 })
-export class TrackorderComponent {
-  orderId = '';
-  customerName = '';
-  cakeFlavour = '';
-  orderStatus = '';
-  loading = false;
+export class TrackorderComponent implements OnInit {
+  trackForm!: FormGroup;
+  orderStatus: string = '';
+  loading: boolean = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private fb: FormBuilder,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  trackOrder(form: NgForm) {
-    if (form.invalid) {
+  ngOnInit(): void {
+    this.trackForm = this.fb.group({
+      orderId: ['', Validators.required],
+      customerName: ['', Validators.required],
+      cakeFlavour: ['', Validators.required]
+    });
+  }
+
+  trackOrder(): void {
+    if (this.trackForm.invalid) {
       this.orderStatus = '';
       this.showToast('trackErrorToast');
+      this.trackForm.markAllAsTouched();
       return;
     }
+
+    const { orderId, customerName, cakeFlavour } = this.trackForm.value;
+    console.log('Tracking Data:', this.trackForm.value);
 
     this.showToast('trackSuccessToast');
     this.orderStatus = 'Fetching order status...';
@@ -38,19 +50,17 @@ export class TrackorderComponent {
         'Delivered'
       ];
       const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-      this.orderStatus = `Cake ID: ${this.orderId}, Customer: ${this.customerName}, Cake: ${this.cakeFlavour} → ${randomStatus}`;
+      this.orderStatus = `Cake ID: ${orderId}, Customer: ${customerName}, Cake: ${cakeFlavour} → ${randomStatus}`;
       this.loading = false;
     }, 2000);
   }
 
-  resetOrder() {
-    this.orderId = '';
-    this.customerName = '';
-    this.cakeFlavour = '';
+  resetOrder(): void {
+    this.trackForm.reset();
     this.orderStatus = '';
   }
 
-  showToast(toastId: string) {
+  showToast(toastId: string): void {
     if (isPlatformBrowser(this.platformId)) {
       const toastEl = document.getElementById(toastId);
       if (toastEl && (window as any).bootstrap?.Toast) {
@@ -60,4 +70,6 @@ export class TrackorderComponent {
     }
   }
 }
+
+
 

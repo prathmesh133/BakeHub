@@ -1,36 +1,43 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-cakeorder',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './cakeorder.component.html',
   styleUrls: ['./cakeorder.component.scss']
 })
-export class CakeorderComponent {
+export class CakeorderComponent implements OnInit {
+  orderForm!: FormGroup;
   submitted = false;
 
-  order = {
-    orderId: '',
-    name: '',
-    email: '',
-    contactNo: '',
-    address: '',
-    date: '',
-    time: '',
-    cakeFlavour: '',
-    quantity: 1,
-    message: ''
-  };
+  constructor(
+    private fb: FormBuilder,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  ngOnInit(): void {
+    this.orderForm = this.fb.group({
+      orderId: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      contactNo: ['', Validators.required],
+      address: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      cakeFlavour: ['', Validators.required],
+      quantity: [1, [Validators.required, Validators.min(1), Validators.max(10)]],
+      message: ['']
+    });
+  }
 
-  submitOrder(form: NgForm) {
-    if (form.valid) {
+  submitOrder(): void {
+    if (this.orderForm.valid) {
       this.submitted = true;
+      console.log('Cake Order Form Data:', this.orderForm.value);
       this.showToast('successToast', 'Order placed successfully!');
     } else {
       this.submitted = false;
@@ -38,23 +45,12 @@ export class CakeorderComponent {
     }
   }
 
-  resetOrder() {
-    this.order = {
-      orderId: '',
-      name: '',
-      email: '',
-      contactNo: '',
-      address: '',
-      date: '',
-      time: '',
-      cakeFlavour: '',
-      quantity: 1,
-      message: ''
-    };
+  resetOrder(): void {
+    this.orderForm.reset({ quantity: 1 });
     this.submitted = false;
   }
 
-  downloadReceipt() {
+  downloadReceipt(): void {
     const summary = document.querySelector('.order-summary') as HTMLElement;
     if (!summary) return;
 
@@ -72,7 +68,7 @@ export class CakeorderComponent {
     });
   }
 
-  showToast(toastId: string, message: string) {
+  showToast(toastId: string, message: string): void {
     if (isPlatformBrowser(this.platformId)) {
       const toastEl = document.getElementById(toastId);
       if (toastEl) {
@@ -89,3 +85,4 @@ export class CakeorderComponent {
     }
   }
 }
+
