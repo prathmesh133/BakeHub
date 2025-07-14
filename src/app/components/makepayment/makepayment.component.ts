@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit, PLATFORM_ID, ViewChild, ElementRef} from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -76,8 +76,6 @@ export class MakepaymentComponent implements OnInit {
     };
 
     this.showToast('contactSuccessToast');
-    this.paymentForm.reset({ paymentMode: 'card' });
-    this.paymentMode = 'card';
   }
 
   resetCard() {
@@ -98,7 +96,7 @@ export class MakepaymentComponent implements OnInit {
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.addImage(imgData, 'PNG', 10, 10, pdfWidth - 20, pdfHeight);
       pdf.save('payment-receipt.pdf');
       this.showToast('receiptGeneratedToast');
     }).catch(() => {

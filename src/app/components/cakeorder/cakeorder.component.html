@@ -64,7 +64,7 @@
       </div>
 
       <div class="col-12">
-        <button type="submit" class="btn btn-success">Place Order</button>
+        <button type="submit" class="btn btn-primary">Place Order</button>
       </div>
     </form>
 
@@ -82,8 +82,8 @@
       <p><strong>Message:</strong> {{ orderForm.value.message }}</p>
 
       <div class="d-flex flex-column flex-sm-row gap-2 mt-3">
-        <button class="btn btn-primary" (click)="downloadReceipt()">Download Receipt</button>
-        <button class="btn btn-warning" (click)="resetOrder()">Place Another Order</button>
+        <button class="btn btn-success" (click)="downloadReceipt()">Download Receipt</button>
+        <button class="btn btn-secondary" (click)="resetOrder()">Reset Order</button>
       </div>
     </div>
   </div>

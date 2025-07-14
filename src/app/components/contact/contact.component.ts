@@ -40,10 +40,13 @@ export class ContactComponent implements OnInit {
     if (this.contactForm.valid) {
       console.log('Form Data:', this.contactForm.value);
       this.showToast('contactSuccessToast');
-      this.contactForm.reset();
     } else {
       this.showToast('contactErrorToast');
       this.contactForm.markAllAsTouched();
     }
+  }
+
+  resetForm(): void {
+    this.contactForm.reset();
   }
 }
