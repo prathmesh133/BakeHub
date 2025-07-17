@@ -3,28 +3,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem; 
   background-color: rgb(232, 226, 193);
 }
 
 .login-card {
   width: 100%;
-  max-width: 400px;
-  padding: 2rem;
-  border:1px solid black;
+  max-width: 25rem; 
+  padding: 2rem; 
+  border: 0.0625rem solid black; 
   background-color: rgb(232, 226, 193);
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.9375rem; 
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); 
 }
 
 .password-input {
-  padding-right: 2.5rem;
+  padding-right: 2.5rem; 
 }
 
 .password-eye {
   position: absolute;
-  bottom: 12px;
-  right: 15px;
+  bottom: 0.75rem; 
+  right: 0.9375rem; 
   font-size: 1.1rem;
   cursor: pointer;
   color: #6c757d;

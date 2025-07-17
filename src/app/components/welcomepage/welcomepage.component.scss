@@ -4,7 +4,7 @@
   overflow: hidden;
   background-color: rgb(232, 226, 193);
   position: relative;
-  padding: 2rem;
+  padding: 2rem; 
 
   .slide-container {
     display: none;
@@ -23,7 +23,7 @@
     padding: 0 5%;
 
     .content {
-      max-width: 630px;
+      max-width: 39.375rem; 
 
       h1 {
         font-size: 2.8rem;
@@ -35,13 +35,13 @@
         font-size: 1.1rem;
         font-weight: 500;
         color: #ee933e;
-        margin: 0.5rem 0 1rem;
+        margin: 0.5rem 0 1rem; 
         font-style: italic;
       }
 
       h4 {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1rem; 
         color: #554343;
       }
 
@@ -54,7 +54,7 @@
 
     .image {
       .cake {
-        width: 375px;
+        width: 23.4375rem; 
       }
     }
   }
@@ -67,7 +67,7 @@
     font-size: 1rem;
     color: #111;
     background: rgba(255, 255, 255, 0.8);
-    padding: 1rem;
+    padding: 1rem; 
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
@@ -80,21 +80,21 @@
   }
 
   .prev {
-    left: 20px;
+    left: 1.25rem; 
   }
 
   .next {
-    right: 20px;
+    right: 1.25rem; 
   }
 
-  @media (max-width: 426px) {
+  @media (max-width: 26.625rem) { 
     .slide {
       flex-direction: column;
       justify-content: center;
       text-align: center;
 
       .image .cake {
-        width: 184px;
+        width: 11.5rem; 
       }
     }
 
@@ -104,14 +104,14 @@
     }
   }
 
-  @media (min-width: 426px) and (max-width: 768px) {
+  @media (min-width: 26.625rem) and (max-width: 48rem) { 
     .slide {
       flex-direction: column;
       justify-content: center;
       text-align: center;
 
       .image .cake {
-        width: 220px;
+        width: 13.75rem; 
       }
     }
 
@@ -121,10 +121,10 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) { 
     .slide {
       flex-direction: row;
-      gap: 50px;
+      gap: 3.125rem; 
     }
   }
 }
