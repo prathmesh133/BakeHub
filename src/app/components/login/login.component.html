@@ -1,12 +1,12 @@
 <div class="container-wrapper">
     <div class="login-card">
         <div class="text-center">
-            <h3>Login Page</h3>
+            <h2>Login Page</h2>
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
+                <label for="email" class="form-label">Email Id</label>
                 <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter email"
                     required>
             </div>
