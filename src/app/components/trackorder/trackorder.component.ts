@@ -49,7 +49,7 @@ export class TrackorderComponent implements OnInit {
         'Delivered'
       ];
       const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-      this.orderStatus = `Cake ID: ${orderId}, Customer: ${customerName}, → ${randomStatus}`;
+      this.orderStatus = `Cake Id: ${orderId}, Customer: ${customerName}, → ${randomStatus}`;
       this.loading = false;
     }, 2000);
   }
