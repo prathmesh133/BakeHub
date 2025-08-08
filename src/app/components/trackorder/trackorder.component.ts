@@ -21,8 +21,7 @@ export class TrackorderComponent implements OnInit {
   ngOnInit(): void {
     this.trackForm = this.fb.group({
       orderId: ['', Validators.required],
-      customerName: ['', Validators.required],
-      cakeFlavour: ['', Validators.required]
+      customerName: ['', Validators.required]
     });
   }
 
@@ -50,7 +49,7 @@ export class TrackorderComponent implements OnInit {
         'Delivered'
       ];
       const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-      this.orderStatus = `Cake ID: ${orderId}, Customer: ${customerName}, Cake: ${cakeFlavour} → ${randomStatus}`;
+      this.orderStatus = `Cake ID: ${orderId}, Customer: ${customerName}, → ${randomStatus}`;
       this.loading = false;
     }, 2000);
   }
