@@ -21,23 +21,9 @@ form,
     margin-top: 2rem;
 }
 
-.btn-success:hover {
-    background-color: #08b189 !important;
+.btn:hover {
     border: 0.125rem solid #000000;
 }
 
-.btn-primary:hover {
-    background-color: #004085 !important;
-    border: 0.125rem solid #000000;
-}
 
-.btn-secondary:hover {
-    background-color: #b35c00 !important;
-    border: 0.125rem solid #000000;
-}
 
-@media screen and (max-width: 576px) {
-    .btn-secondary {
-        width: 7.5rem;
-    }
-}

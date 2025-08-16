@@ -6,36 +6,11 @@
   background-color: rgb(232, 226, 193);
 }
 
-.btn-primary:hover {
-  background-color: #485c04 !important;
+.btn:hover {
   border: 2px solid #030912 !important;
-}
-
-.btn-secondary:hover {
-  background-color: #183e02 !important;
-  border: 2px solid #000102 !important;
-}
-
-.btn-success:hover{
-  background-color: #066287 !important;
-  border: 2px solid #000102 !important;
 }
 
 h4 {
   font-weight: 600;
 }
 
-
-@media (max-width: 576px) {
-  h3 {
-    font-size: 1.7rem;
-  }
-
-  h4 {
-    font-size: 1.2rem;
-  }
-
-  .form-check-label {
-    font-size: 1rem;
-  }
-}

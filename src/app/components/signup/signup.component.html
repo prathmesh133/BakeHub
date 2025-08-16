@@ -6,13 +6,13 @@
 
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter full name" required>
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter Your Name" required>
       </div>
 
       <div class="mb-3">
         <label for="email" class="form-label">Email Id</label>
-        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email Id" required>
       </div>
 
       <div class="mb-3">
@@ -23,7 +23,7 @@
       <div class="mb-3 position-relative">
         <label for="password" class="form-label">Password</label>
         <input [type]="showPassword ? 'text' : 'password'" id="password" class="form-control password-input"
-               formControlName="password" placeholder="Enter password" required>
+               formControlName="password" placeholder="Enter Password" required>
         <i class="fa-solid password-eye" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
            (click)="togglePasswordVisibility()"></i>
       </div>
@@ -31,7 +31,7 @@
       <div class="mb-3 position-relative">
         <label for="confirmPassword" class="form-label">Confirm Password</label>
         <input [type]="showConfirmPassword ? 'text' : 'password'" id="confirmPassword"
-               class="form-control password-input" formControlName="confirmPassword" placeholder="Re-enter password" required>
+               class="form-control password-input" formControlName="confirmPassword" placeholder="Re-enter Password" required>
         <i class="fa-solid password-eye" [ngClass]="showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'"
            (click)="toggleConfirmPasswordVisibility()"></i>
       </div>

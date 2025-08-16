@@ -1,26 +1,26 @@
 <div class="container-wrapper">
     <div class="login-card">
         <div class="text-center">
-            <h2>Login Page</h2>
+            <h2>Log In Page</h2>
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label for="email" class="form-label">Email Id</label>
-                <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter email"
+                <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email Id"
                     required>
             </div>
 
             <div class="mb-3 position-relative">
                 <label for="password" class="form-label">Password</label>
                 <input [type]="showPassword ? 'text' : 'password'" id="password" class="form-control password-input"
-                    formControlName="password" placeholder="Enter password" required>
+                    formControlName="password" placeholder="Enter Password" required>
                 <i class="fa-solid password-eye" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
                     (click)="togglePasswordVisibility()"></i>
             </div>
 
             <div class="d-grid mb-2">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Log In</button>
             </div>
 
             <div class="text-center">
