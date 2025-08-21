@@ -4,6 +4,8 @@
 
 .card {
     background-color: rgb(232, 226, 193);
+    max-width: 900px;
+    margin: auto;
 }
 
 header {
@@ -26,4 +28,14 @@ form,
 }
 
 
+@media (max-width: 425px) {
+    .card {
+        max-width: 95%;
+        padding: 1rem;
+    }
 
+    form,
+    .order-summary {
+        padding: 1rem;
+    }
+}
