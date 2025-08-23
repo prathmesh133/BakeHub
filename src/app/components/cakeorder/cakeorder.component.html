@@ -8,30 +8,37 @@
           <label class="form-label">Order ID</label>
           <input type="text" class="form-control" formControlName="orderId">
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Name</label>
           <input type="text" class="form-control" formControlName="name">
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Email</label>
           <input type="email" class="form-control" formControlName="email">
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Contact No</label>
-          <input type="text" class="form-control" formControlName="contactNo">
+          <input type="Number" class="form-control" formControlName="contactNo">
         </div>
+
         <div class="col-12">
           <label class="form-label">Address</label>
           <textarea class="form-control" formControlName="address"></textarea>
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Date</label>
           <input type="date" class="form-control" formControlName="date">
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Time</label>
           <input type="time" class="form-control" formControlName="time">
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Cake Flavour</label>
           <select class="form-select" formControlName="cakeFlavour">
@@ -44,10 +51,12 @@
             <option>Butterscotch Cake - 260Rs</option>
           </select>
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Quantity</label>
           <input type="number" class="form-control" formControlName="quantity">
         </div>
+
         <div class="col-12">
           <label class="form-label">Message on Cake</label>
           <input type="text" class="form-control" formControlName="message">
@@ -61,7 +70,6 @@
     </form>
   </div>
 
-  <!-- Receipt Section -->
   <div *ngIf="submitted" class="mt-5 card p-3" id="receipt">
     <h3 class="text-center">Cake Order Receipt</h3>
     <p><strong>Order ID:</strong> {{ orderForm.value.orderId }}</p>
@@ -81,7 +89,6 @@
   </div>
 </div>
 
-<!-- Success Toast -->
 <div id="successToast" class="toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-3" role="alert">
   <div class="d-flex">
     <div class="toast-message p-2">Order placed successfully!</div>
@@ -89,7 +96,6 @@
   </div>
 </div>
 
-<!-- Error Toast -->
 <div id="errorToast" class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 m-3" role="alert">
   <div class="d-flex">
     <div class="toast-message p-2">Please fill all fields correctly!</div>
