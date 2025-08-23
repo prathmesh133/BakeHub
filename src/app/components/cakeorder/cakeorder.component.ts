@@ -76,8 +76,6 @@ export class CakeorderComponent implements OnInit {
         if ((window as any).bootstrap?.Toast) {
           const toast = new (window as any).bootstrap.Toast(toastEl);
           toast.show();
-        } else {
-          console.warn('⚠️ Bootstrap Toast is not available. Make sure bootstrap.bundle.js is loaded.');
         }
       }
     }

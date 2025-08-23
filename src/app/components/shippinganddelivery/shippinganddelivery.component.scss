@@ -1,50 +1,50 @@
-  .container-fluid {
-      background-color: rgb(232, 226, 193);
-  }
+.container-fluid {
+    background-color: rgb(232, 226, 193);
+}
 
-  .delivery-container {
-      background-color: rgb(232, 226, 193);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
+.delivery-container {
+    background-color: rgb(232, 226, 193);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
 
-  .delivery-title {
-      color: black;
-      font-size: 2rem;
-      font-weight: 500;
-  }
+.delivery-title {
+    color: black;
+    font-size: 2rem;
+    font-weight: 500;
+}
 
-  .delivery-subtitle {
-      color: black;
-      font-size: 1.25rem;
-      font-weight: 500;
-  }
+.delivery-subtitle {
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
 
-  .delivery-text {
-      color: #333;
-      font-size: 1rem;
-      line-height: 1.7;
-  }
+.delivery-text {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.7;
+}
 
-  ul {
-      padding-left: 1.5rem;
-  }
+ul {
+    padding-left: 1.5rem;
+}
 
-  li {
-      margin-bottom: 0.5rem;
-  }
+li {
+    margin-bottom: 0.5rem;
+}
 
-  @media (min-width: 768px) {
-      .delivery-title {
-          font-size: 2.5rem;
-      }
+@media (min-width: 768px) {
+    .delivery-title {
+        font-size: 2.5rem;
+    }
 
-      .delivery-subtitle {
-          font-size: 1.5rem;
-      }
+    .delivery-subtitle {
+        font-size: 1.5rem;
+    }
 
-      .delivery-text {
-          font-size: 1.1rem;
-      }
-  }
+    .delivery-text {
+        font-size: 1.1rem;
+    }
+}
