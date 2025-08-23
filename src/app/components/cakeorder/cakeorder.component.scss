@@ -14,18 +14,6 @@
   color: #333;
 }
 
-.form-control,
-textarea {
-  border: 2px solid #d4cdb0;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.form-control:focus,
-textarea:focus {
-  border-color: #4a2c2a;
-  box-shadow: 0 0 6px rgba(74, 44, 42, 0.4);
-}
 
 .btn:hover {
   border: 0.125rem solid #030b17;
