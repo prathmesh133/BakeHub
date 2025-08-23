@@ -65,34 +65,6 @@ export class CakeorderComponent implements OnInit {
     });
   }
 
-  printReceipt(): void {
-    const receipt = document.getElementById('receipt');
-    if (!receipt) return;
-
-    const printContents = receipt.innerHTML;
-    const newWin = window.open('', '_blank', 'width=800,height=600');
-    if (newWin) {
-      newWin.document.write(`
-        <html>
-          <head>
-            <title>Cake Order Receipt</title>
-            <style>
-              body { font-family: Arial, sans-serif; padding:20px; }
-              h3 { text-align:center; }
-            </style>
-          </head>
-          <body>
-            ${printContents}
-            <script>
-              window.onload = function() { window.print(); }
-            </script>
-          </body>
-        </html>
-      `);
-      newWin.document.close();
-    }
-  }
-
   showToast(toastId: string, message: string): void {
     if (isPlatformBrowser(this.platformId)) {
       const toastEl = document.getElementById(toastId);
@@ -104,6 +76,8 @@ export class CakeorderComponent implements OnInit {
         if ((window as any).bootstrap?.Toast) {
           const toast = new (window as any).bootstrap.Toast(toastEl);
           toast.show();
+        } else {
+          console.warn('⚠️ Bootstrap Toast is not available. Make sure bootstrap.bundle.js is loaded.');
         }
       }
     }
