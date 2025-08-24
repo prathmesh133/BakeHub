@@ -40,15 +40,15 @@
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Cake Flavour</label>
+          <label class="form-label">Cake Flavour with Price</label>
           <select class="form-select" formControlName="cakeFlavour">
             <option value="" disabled selected>-- Select Flavour --</option>
-            <option>Chocolate Cake - 250Rs</option>
-            <option>Vanilla Cake - 150Rs</option>
-            <option>Red Velvet Cake - 320Rs</option>
-            <option>Cheese Cake - 230Rs</option>
-            <option>Strawberry Cake - 280Rs</option>
-            <option>Butterscotch Cake - 260Rs</option>
+            <option>Chocolate Cake: Rs 160/-</option>
+            <option>Butterscotch Cake: Rs 200/-</option>
+            <option>Strawberry Cake: Rs 180/-</option>
+            <option>Mango Cake: Rs 150/-</option>
+            <option>Pineapple Cake: Rs 170/-</option>
+            <option>Rasmalai Cake: Rs 190/-</option>
           </select>
         </div>
 
@@ -63,7 +63,7 @@
         </div>
       </div>
 
-      <div class="mt-4 d-flex gap-2">
+      <div class="mt-4 d-flex gap-3">
         <button type="submit" class="btn btn-primary">Place Order</button>
         <button type="button" class="btn btn-secondary" (click)="resetOrder()">Reset</button>
       </div>
