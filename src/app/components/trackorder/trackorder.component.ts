@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
   styleUrls: ['./trackorder.component.scss']
 })
 export class TrackorderComponent implements OnInit {
-  trackForm!: FormGroup;
+ trackForm!: FormGroup;
   orderStatus: string = '';
   loading: boolean = false;
 
@@ -33,7 +33,7 @@ export class TrackorderComponent implements OnInit {
       return;
     }
 
-    const { orderId, customerName, cakeFlavour } = this.trackForm.value;
+    const { orderId, customerName, } = this.trackForm.value;
     console.log('Tracking Data:', this.trackForm.value);
 
     this.showToast('trackSuccessToast');
@@ -49,7 +49,7 @@ export class TrackorderComponent implements OnInit {
         'Delivered'
       ];
       const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-      this.orderStatus = `Cake Id: ${orderId}, Customer: ${customerName}, → ${randomStatus}`;
+      this.orderStatus = `Cake Id: ${orderId}, Customer name: ${customerName}, Order status: → ${randomStatus}`;
       this.loading = false;
     }, 2000);
   }
