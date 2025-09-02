@@ -40,7 +40,7 @@
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Cake Flavour with Price</label>
+          <label class="form-label">Cake Flavours with Price</label>
           <select class="form-select" formControlName="cakeFlavour">
             <option value="" disabled selected>-- Select Flavour --</option>
             <option>Chocolate Cake: Rs 160/-</option>
@@ -71,7 +71,7 @@
   </div>
 
   <div *ngIf="submitted" class="mt-5 card p-3" id="receipt">
-    <h3 class="text-center">Cake Order Receipt</h3>
+    <h3 class="text-center">Order Receipt</h3>
     <p><strong>Order ID:</strong> {{ orderForm.value.orderId }}</p>
     <p><strong>Name:</strong> {{ orderForm.value.name }}</p>
     <p><strong>Email:</strong> {{ orderForm.value.email }}</p>
