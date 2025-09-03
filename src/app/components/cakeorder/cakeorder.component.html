@@ -63,7 +63,7 @@
         </div>
       </div>
 
-      <div class="mt-4 d-flex gap-3">
+      <div class="mt-4 d-flex justify-content-start gap-3">
         <button type="submit" class="btn btn-primary">Place Order</button>
         <button type="button" class="btn btn-secondary" (click)="resetOrder()">Reset</button>
       </div>
@@ -89,14 +89,16 @@
   </div>
 </div>
 
-<div id="successToast" class="toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-3" role="alert">
+<div id="successToast" class="toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-3"
+  role="alert">
   <div class="d-flex">
     <div class="toast-message p-2">Order placed successfully!</div>
     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
   </div>
 </div>
 
-<div id="errorToast" class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 m-3" role="alert">
+<div id="errorToast" class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 m-3"
+  role="alert">
   <div class="d-flex">
     <div class="toast-message p-2">Please fill all fields correctly!</div>
     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
