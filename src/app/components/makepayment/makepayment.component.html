@@ -1,101 +1,98 @@
 <div class="container-fluid bg-wrapper py-4">
-  <div class="payment-wrapper mx-auto px-2 px-md-4">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-10">
-        <div class="card p-3 p-md-4 shadow-lg rounded-4 border border-secondary">
-          <h2 class="text-center text-dark mb-4">Make Payment</h2>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-10">
+      <div class="card p-3 p-md-4 shadow-lg rounded-4 border border-secondary">
+        <h2 class="text-center text-dark mb-4">Make Payment</h2>
 
-          <form [formGroup]="paymentForm" (ngSubmit)="proceedCardPayment()">
-            <div class="mb-3">
-              <strong class="d-block mb-2">Payment Mode:</strong>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="cash" formControlName="paymentMode" id="cod">
-                <label class="form-check-label" for="cod">Cash on Delivery</label>
-              </div>
-
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="card" formControlName="paymentMode" id="card">
-                <label class="form-check-label" for="card">Pay with Card</label>
-              </div>
+        <form [formGroup]="paymentForm" (ngSubmit)="proceedCardPayment()">
+          <div class="mb-3">
+            <strong class="d-block mb-2">Payment Mode:</strong>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="cash" formControlName="paymentMode" id="cod">
+              <label class="form-check-label" for="cod">Cash on Delivery</label>
             </div>
 
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Your Name</label>
-                <input class="form-control" placeholder="Enter Your Name" formControlName="payerName">
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Cake Ordered</label>
-                <select class="form-select" formControlName="cakeFlavour">
-                  <option value="">-- Select Flavour --</option>
-                  <option>Chocolate Cake - 250Rs</option>
-                  <option>Vanilla Cake - 150Rs</option>
-                  <option>Red Velvet Cake - 320Rs</option>
-                  <option>Cheese Cake - 230Rs</option>
-                  <option>Strawberry Cake - 280Rs</option>
-                  <option>Butterscotch Cake - 260Rs</option>
-                </select>
-              </div>
-
-              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
-                <label class="form-label">Card Number</label>
-                <input class="form-control" placeholder="Enter Card Number" formControlName="number">
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Pay Amount</label>
-                <input type="number" class="form-control" placeholder="Enter Your Amount" formControlName="amount">
-              </div>
-
-              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
-                <label class="form-label">Card Type</label>
-                <select class="form-select" formControlName="type">
-                  <option value="">Select Card Type</option>
-                  <option value="debit">Debit Card</option>
-                  <option value="credit">Credit Card</option>
-                  <option value="Visa">Visa</option>
-                  <option value="MasterCard">MasterCard</option>
-                  <option value="Rupay">Rupay</option>
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Pay Date & Time</label>
-                <input type="datetime-local" class="form-control" formControlName="payDateTime">
-              </div>
-
-              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
-                <label class="form-label">Expiry Date</label>
-                <input type="month" class="form-control" formControlName="expiry">
-              </div>
-
-              <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
-                <label class="form-label">CVV</label>
-                <input type="password" maxlength="3" class="form-control" placeholder="Enter CVV" formControlName="cvv">
-              </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="card" formControlName="paymentMode" id="card">
+              <label class="form-check-label" for="card">Pay with Card</label>
             </div>
-
-            <div class="mt-4 d-flex justify-content-start gap-3">
-              <button type="submit" class="btn btn-primary">Proceed Payment</button>
-              <button type="button" class="btn btn-secondary" (click)="resetCard()">Reset</button>
-            </div>
-          </form>
-
-          <div *ngIf="paymentSummary" #receipt class="alert alert-success mt-4">
-            <h5>Payment Receipt</h5>
-            <p><strong>Payer:</strong> {{ paymentSummary.payerName }}</p>
-            <p><strong>Cake Flavour:</strong> {{ paymentSummary.cakeFlavour }}</p>
-            <p><strong>Amount:</strong> ₹{{ paymentSummary.amount }}</p>
-            <p *ngIf="paymentSummary.type">
-              <strong>Card:</strong> {{ paymentSummary.type }} (****{{ paymentSummary.number?.slice(-4) }})
-            </p>
-            <p><strong>Payment Mode:</strong> {{ paymentSummary.mode }}</p>
-            <p><strong>Payment Date:</strong> {{ paymentSummary.payDateTime }}</p>
-
-            <button class="btn btn-success" (click)="generateReceipt()">Download Receipt</button>
-            
           </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Your Name</label>
+              <input class="form-control" placeholder="Enter Your Name" formControlName="payerName">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Cake Ordered</label>
+              <select class="form-select" formControlName="cakeFlavour">
+                <option value="">-- Select Flavour --</option>
+                <option>Chocolate Cake - 250Rs</option>
+                <option>Vanilla Cake - 150Rs</option>
+                <option>Red Velvet Cake - 320Rs</option>
+                <option>Cheese Cake - 230Rs</option>
+                <option>Strawberry Cake - 280Rs</option>
+                <option>Butterscotch Cake - 260Rs</option>
+              </select>
+            </div>
+
+            <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+              <label class="form-label">Card Number</label>
+              <input class="form-control" placeholder="Enter Card Number" formControlName="number">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Pay Amount</label>
+              <input type="number" class="form-control" placeholder="Enter Your Amount" formControlName="amount">
+            </div>
+
+            <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+              <label class="form-label">Card Type</label>
+              <select class="form-select" formControlName="type">
+                <option value="">Select Card Type</option>
+                <option value="debit">Debit Card</option>
+                <option value="credit">Credit Card</option>
+                <option value="Visa">Visa</option>
+                <option value="MasterCard">MasterCard</option>
+                <option value="Rupay">Rupay</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Pay Date & Time</label>
+              <input type="datetime-local" class="form-control" formControlName="payDateTime">
+            </div>
+
+            <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+              <label class="form-label">Expiry Date</label>
+              <input type="month" class="form-control" formControlName="expiry">
+            </div>
+
+            <div class="col-md-6" *ngIf="paymentForm.get('paymentMode')?.value === 'card'">
+              <label class="form-label">CVV</label>
+              <input type="password" maxlength="3" class="form-control" placeholder="Enter CVV" formControlName="cvv">
+            </div>
+          </div>
+
+          <div class="mt-4 d-flex justify-content-start gap-3">
+            <button type="submit" class="btn btn-primary">Proceed Payment</button>
+            <button type="button" class="btn btn-secondary" (click)="resetCard()">Reset</button>
+          </div>
+        </form>
+
+        <div *ngIf="paymentSummary" #receipt class="alert alert-success mt-4">
+          <h5>Payment Receipt</h5>
+          <p><strong>Payer:</strong> {{ paymentSummary.payerName }}</p>
+          <p><strong>Cake Flavour:</strong> {{ paymentSummary.cakeFlavour }}</p>
+          <p><strong>Amount:</strong> ₹{{ paymentSummary.amount }}</p>
+          <p *ngIf="paymentSummary.type">
+            <strong>Card:</strong> {{ paymentSummary.type }} (****{{ paymentSummary.number?.slice(-4) }})
+          </p>
+          <p><strong>Payment Mode:</strong> {{ paymentSummary.mode }}</p>
+          <p><strong>Payment Date:</strong> {{ paymentSummary.payDateTime }}</p>
+
+          <button class="btn btn-success" (click)="generateReceipt()">Download Receipt</button>
         </div>
       </div>
     </div>
