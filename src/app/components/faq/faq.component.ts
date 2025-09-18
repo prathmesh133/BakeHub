@@ -16,18 +16,22 @@ export class FaqComponent {
       question: 'How can I place a cake order?',
       answer: 'You can fill out the cake order form and click "Place Order".',
     },
+
     {
       question: 'What are the available cake flavors?',
       answer: 'We offer chocolate, vanilla, red velvet, strawberry, and more.',
     },
+
     {
       question: 'Do you offer same-day delivery?',
       answer: 'Yes, for orders placed before 2 PM.',
     },
+
     {
       question: 'Can I customize the message on the cake?',
       answer: 'Absolutely! Use the "Message on Cake" field in the order form.',
     },
+    
     {
       question: 'What payment methods do you accept?',
       answer: 'We accept cash on delivery and credit/debit cards.',

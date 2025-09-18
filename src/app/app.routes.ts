@@ -23,5 +23,4 @@ export const routes: Routes = [
   { path: 'shippinganddelivery', component: ShippinganddeliveryComponent },
   { path: 'privacypolicy', component: PrivacypolicyComponent },
   { path: 'returnandrefund', component: ReturnandrefundsComponent }
-
 ];

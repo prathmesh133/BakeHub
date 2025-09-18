@@ -15,12 +15,14 @@ export class WelcomepageComponent {
       description: 'A lavishly frosted with a rich chocolate ganache, adorned with "Happy Birthday" in elegant white script and finished with chocolate sprinkles around the sides and decorative swirls on top.',
       cakeImg: 'image1.jpeg'
     },
+
     {
       title: 'BakeHub',
       subtitle: 'Chocolate Drip Cake',
       description: 'A sophisticated cake with a light-colored frosting, cascading dark chocolate ganache, delicate cream rosettes, chocolate balls, and a golden "Happy Birthday" topper.',
       cakeImg: 'image2.jpg'
     },
+    
     {
       title: 'BakeHub',
       subtitle: 'Charming Chocolate Cake',

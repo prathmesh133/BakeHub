@@ -17,7 +17,7 @@ export class CakeorderComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.orderForm = this.fb.group({
