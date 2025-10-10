@@ -1,5 +1,11 @@
-.logo {
+.img-fluid {
   width: 4.375rem;
+  border-radius: 15px;
+}
+
+.navbar-toggler {
+  background-color: darkturquoise !important;
+  border: 3px solid white;
 }
 
 .nav-link {
@@ -7,10 +13,6 @@
   cursor: pointer;
 }
 
-.navbar-toggler{
-  background-color: darkturquoise!important;
-  border: 3px solid white;
-}
 
 .active {
   color: #8490ff !important;
