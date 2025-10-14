@@ -18,7 +18,6 @@
   cursor: pointer;
 }
 
-
 .active {
   color: #8490ff !important;
 }
@@ -30,4 +29,4 @@
 
 .btn i {
   font-size: 1rem;
-}
+}/*# sourceMappingURL=header.component.css.map */
